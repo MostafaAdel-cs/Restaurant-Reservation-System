@@ -105,4 +105,28 @@
             <type>main_course</type>
         </dish>
     </dishes>
+    <restaurantorders>
+    <orders>
+        <customerusername>john</customerusername>
+        <order>
+            <table>
+                <number>7</number>
+                <number_of_seats>6</number_of_seats>
+                <smoking>true</smoking>
+            </table>
+            <dishes>
+                <dish>
+                    <name>Beef Steak</name>
+                    <price>80</price>
+                    <type>main_course</type>
+                </dish>
+                <dish>
+                    <name>Mushroom Soup</name>
+                    <price>60</price>
+                    <type>main_course</type>
+                </dish>
+            </dishes>
+        </order>
+    </orders>
+    </restaurantorders>
 </restaurant>

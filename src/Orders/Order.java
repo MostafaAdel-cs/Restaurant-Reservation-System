@@ -3,10 +3,18 @@ package Orders;
 import Dishes.Dishes;
 import Tables.Table;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="order")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Order {
 
-    private int id;
+    @XmlElement(name="dishes")
     private Dishes dishes;
+    @XmlElement(name="table")
     private Table table;
     private boolean served;
     private boolean cooked;
@@ -35,16 +43,6 @@ public class Order {
         this.cooked = cooked;
     }
 
-
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Dishes getDishes() {
         return dishes;

@@ -1,5 +1,5 @@
 package Restaurant;
-
+import Orders.*;
 import Dishes.Dishes;
 import Orders.Orders;
 import Tables.Tables;
@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 @XmlRootElement(name="restaurant")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -23,7 +24,9 @@ public class Restaurant {
     @XmlElement(name="tables")
     private Tables tables=null;
 
-    private Orders orders;
+
+    @XmlElement(name="restaurantorders")
+    private RestaurnatOrders restaurnatOrders=null;
 
     public Users getUsers() {
         return users;

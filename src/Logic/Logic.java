@@ -120,9 +120,13 @@ public class Logic {
         return null;
 
     }
+
     public void printOrder(Customer user)
     {
         for(Dish dish:user.getOrder().getDishes().getDishes())
             System.out.println(dish.getName()+" "+dish.getType());
     }
+
+
+
 }
