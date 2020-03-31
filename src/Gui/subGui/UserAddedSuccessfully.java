@@ -9,10 +9,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class UserAddedSuccessfully {
-    Stage stage=new Stage();
-    Scene scene;
+
     public void userAdded()
     {
+        Stage stage=new Stage();
+        Scene scene;
         stage.initModality(Modality.APPLICATION_MODAL);
         GridPane grid=new GridPane();
         Label userAdded=new Label("User Added Successfully");

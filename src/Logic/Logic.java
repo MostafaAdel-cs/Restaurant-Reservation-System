@@ -23,6 +23,13 @@ public class Logic {
     public void load() throws JAXBException {
         restaurant = data.loadFromXml();
     }
+    public  void save() throws JAXBException {
+        data.saveToXml(restaurant);
+    }
+
+
+
+
 
 
 
@@ -60,18 +67,18 @@ public class Logic {
 
     public String getRole(User user) {
 
-        if(user.getRole().contentEquals("Manager"))
+        if(user.getRole().contentEquals("Manger"))
         {
 
-            return "Manager";
+            return "Manger";
         }
         else if(user.getRole().contentEquals("Client"))
         {
             return "Client";
         }
-        else if(user.getRole().contentEquals("Cook"))
+        else if(user.getRole().contentEquals("Cooker"))
         {
-            return "Cook";
+            return "Cooker";
         }
         else
         {
@@ -81,13 +88,14 @@ public class Logic {
     }
 
 
-    public void addUser(String name, String password, String username, String role) {
+    public void addUser(String name, String password, String username, String role) throws JAXBException {
         User user=new User();
         user.setName(name);
         user.setUserName(username);
         user.setPassword(password);
         user.setRole(role);
         restaurant.getUsers().getUsers().add(user);
+        save();
     }
 
 

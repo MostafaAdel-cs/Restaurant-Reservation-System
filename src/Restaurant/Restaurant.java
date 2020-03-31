@@ -25,8 +25,7 @@ public class Restaurant {
     private Tables tables=null;
 
 
-    @XmlElement(name="restaurantorders")
-    private RestaurnatOrders restaurnatOrders=null;
+
 
     public Users getUsers() {
         return users;

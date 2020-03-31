@@ -8,13 +8,12 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="order")
-@XmlAccessorType(XmlAccessType.FIELD)
+
 public class Order {
 
-    @XmlElement(name="dishes")
+
     private Dishes dishes;
-    @XmlElement(name="table")
+
     private Table table;
     private boolean served;
     private boolean cooked;

@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import javax.xml.bind.JAXBException;
+
 public class AddUserWindow {
     private Scene scene;
     private Stage stage;
@@ -34,7 +36,7 @@ public class AddUserWindow {
              PasswordField textPassword=new PasswordField();
              PasswordField textConPassword=new PasswordField();
              ChoiceBox<String> chooseRole=new ChoiceBox<>();
-                chooseRole.getItems().addAll("Manger","Client","Cook","Waiter");
+                chooseRole.getItems().addAll("Manger","Client","Cooker","Waiter");
 
           Button submit=new Button("Submit");
           Button back =new Button("Back");
@@ -86,7 +88,13 @@ public class AddUserWindow {
             }
             else
             {
-                logic.addUser(name, password, username, role);
+
+
+                try {
+                    logic.addUser(name, password, username, role);
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                }
                 userAddedSuccessfully.userAdded();
                 mainWindow.prepareScene();
                 mainWindow.showScene();
@@ -95,9 +103,6 @@ public class AddUserWindow {
         {
             enterData.setVisible(true);
         }
-
-
-
 
     }
 

@@ -75,13 +75,13 @@ public class MainWindow {
        {
            this.user=logic.getUser(username);
            String role=logic.getRole(this.user);
-           if(role.contentEquals("Manager"))
+           if(role.contentEquals("Manger"))
            {
 
                managerWindow.prepareScene();
                managerWindow.showScene();
            }
-           else if (role.contentEquals("Cook"))
+           else if (role.contentEquals("Cooker"))
            {
 
                cookWindow.prepareScene();
@@ -90,7 +90,6 @@ public class MainWindow {
            else if(role.contentEquals("Client"))
            {
 
-               customerWindow.setUser(user);
                customerWindow.setMainScene();
                customerWindow.showScene();
            }
