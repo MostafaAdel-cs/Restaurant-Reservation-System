@@ -52,10 +52,10 @@ public class CustomerWindow {
     public void setMainScene(){
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
-
+        grid.setHgap(5);
+        grid.setVgap(5);
         grid.add(changeTable,0,0);
         grid.add(showReceipt,0,1);
-
         grid.add(makeOrder,1,0);
         grid.add(back,1,1);
         scene=new Scene(grid,600,400);

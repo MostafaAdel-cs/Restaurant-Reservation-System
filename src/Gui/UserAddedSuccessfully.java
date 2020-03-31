@@ -18,6 +18,8 @@ public class UserAddedSuccessfully {
         Label userAdded=new Label("User Added Successfully");
         Button close=new Button("Close");
         grid.setAlignment(Pos.CENTER);
+        grid.setHgap(5);
+        grid.setVgap(5);
         grid.add(userAdded,0,0);
         grid.add(close,0,1);
         scene=new Scene(grid,300,300);

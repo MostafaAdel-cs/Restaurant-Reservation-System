@@ -46,9 +46,9 @@ public class AddUserWindow {
             enterData.setVisible(false);
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setHgap(5);
+        grid.setVgap(5);
         grid.add( name , 0, 0);
-
-
         grid.add( textName , 4, 0);
         grid.add( userName , 0, 1);
         grid.add( textUserName , 4, 1);

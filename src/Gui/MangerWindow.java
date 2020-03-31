@@ -29,6 +29,8 @@ public class MangerWindow {
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setHgap(5);
+        grid.setVgap(5);
         grid.add(custList,0,0);
         grid.add(totalGain,0,1);
         grid.add(back,0,2);

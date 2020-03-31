@@ -52,6 +52,8 @@ public class MainWindow {
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setHgap(5);
+        grid.setVgap(5);
         grid.add(login, 1 , 0);
         grid.add(wrongData,2,0);
         grid.add(username, 0, 1);

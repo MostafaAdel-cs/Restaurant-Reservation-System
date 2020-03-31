@@ -30,6 +30,8 @@ public class CookWindow {
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setHgap(5);
+        grid.setVgap(5);
         grid.add(orders, 0, 0);
         grid.add(orderId, 0, 1);
         grid.add(orderDishes, 1, 0);
