@@ -1,5 +1,7 @@
 package Gui;
 
+import Users.Cook;
+import Users.User;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,6 +12,7 @@ import javafx.stage.Stage;
 public class CookWindow {
     private Stage stage;
     private Scene scene;
+    private Cook user=new Cook();
     private MainWindow mainWindow;
     public void setMainWindow(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
@@ -47,7 +50,10 @@ public class CookWindow {
         stage.setScene(scene);
         stage.show();
     }
+    public void setUser(User user)
+    {
 
+    }
 
 
 }

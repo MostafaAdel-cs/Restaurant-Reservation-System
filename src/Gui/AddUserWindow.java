@@ -1,7 +1,7 @@
 package Gui;
 
+import Gui.subGui.UserAddedSuccessfully;
 import Logic.Logic;
-import Users.User;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;

@@ -1,8 +1,7 @@
 package Gui;
 
 import Logic.Logic;
-import Users.User;
-import Users.Waiter;
+import Users.*;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,6 +10,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.lang.management.ManagementFactory;
 
 public class MainWindow {
     private Stage stage;
@@ -43,10 +44,7 @@ public class MainWindow {
         PasswordField passwordin = new PasswordField();
         Button loginbutton = new Button("Login");
         Button adduser = new Button("Add user");
-        Button cook = new Button("Cook");
-        Button waiter = new Button("Waiter");
-        Button customer = new Button("Customer");
-        Button manager = new Button("Manager");
+
         Label wrongData =new Label("Wrong Username or Password");
         wrongData.setVisible(false);
 
@@ -72,28 +70,33 @@ public class MainWindow {
     private void loginClicked(String username, String password, Label wrongData)
     {
 
-       boolean validate= logic.checkUsers(username,password);
-       if(validate)
+
+       if( logic.checkUsers(username,password))
        {
            this.user=logic.getUser(username);
            String role=logic.getRole(this.user);
            if(role.contentEquals("Manager"))
            {
+
                managerWindow.prepareScene();
                managerWindow.showScene();
            }
            else if (role.contentEquals("Cook"))
            {
+
                cookWindow.prepareScene();
                cookWindow.showScene();
            }
            else if(role.contentEquals("Client"))
            {
+
+               customerWindow.setUser(user);
                customerWindow.setMainScene();
                customerWindow.showScene();
            }
            else
            {
+
                waiterWindow.prepareScene();
                waiterWindow.showScene();
            }
@@ -117,16 +120,6 @@ public class MainWindow {
         stage.setScene(scene);
         stage.show();
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }

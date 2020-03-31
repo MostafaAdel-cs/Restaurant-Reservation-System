@@ -1,5 +1,7 @@
 package Gui;
 
+import Users.User;
+import Users.Waiter;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,6 +12,7 @@ import javafx.stage.Stage;
 public class WaiterWindow {
     private Stage stage;
     private Scene scene;
+    private Waiter user=new Waiter();
 
     public WaiterWindow(Stage stage) {
         this.stage = stage;
@@ -44,8 +47,9 @@ public class WaiterWindow {
         stage.show();
     }
 
+    public void setUser(User user)
+    {
 
-
-
+    }
 
 }

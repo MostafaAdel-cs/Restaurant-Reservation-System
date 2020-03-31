@@ -1,5 +1,7 @@
 package Gui;
 
+import Users.Manger;
+import Users.User;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,9 +9,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.lang.management.ManagementFactory;
+
 public class MangerWindow {
     private  Stage stage;
     private  Scene scene;
+    private Manger user=new Manger();
 
     public MangerWindow(Stage stage) {
         this.stage = stage;
@@ -41,5 +46,9 @@ public class MangerWindow {
     {
         stage.setScene(scene);
         stage.show();
+    }
+    public void setUser(User user)
+    {
+
     }
 }

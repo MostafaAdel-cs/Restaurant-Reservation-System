@@ -34,7 +34,7 @@ public class Main extends Application {
 
         WaiterWindow waiterWindow=new WaiterWindow(primaryStage);
 
-        CustomerWindow customerWindow=new CustomerWindow(primaryStage);
+        CustomerWindow customerWindow=new CustomerWindow(primaryStage,logic);
 
         MainWindow mainWindow=new MainWindow(primaryStage,addUserWindow,cookWindow,mangerWindow,waiterWindow,customerWindow,logic);
 

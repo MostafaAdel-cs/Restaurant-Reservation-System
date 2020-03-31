@@ -1,5 +1,9 @@
 package Gui;
 
+import Dishes.Dishes;
+import Logic.Logic;
+import Users.Customer;
+import Users.User;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,8 +11,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
+import Dishes.Dish;
 public class CustomerWindow {
+    private Logic logic;
+    private Customer user=new Customer();
 
     private  Label chooseTable=new Label("Choose Table");
     private  Label appetizer=new Label("Appetizer");
@@ -42,8 +48,9 @@ public class CustomerWindow {
     private Stage stage;
     private Scene scene;
 
-    public CustomerWindow(Stage stage) {
+    public CustomerWindow(Stage stage, Logic logic) {
         this.stage = stage;
+        this.logic=logic;
     }
 
 
@@ -79,6 +86,15 @@ public class CustomerWindow {
     private  void setOrderScene(){
 
         GridPane grid=new GridPane();
+        for(Dish dish:logic.getRestaurant().getDishes().getDishes())
+        {
+            if(dish.getType().contentEquals("main_course"))
+                mainourse.getItems().add(dish.getName());
+            else if(dish.getType().contentEquals("appetizer"))
+                aPpetizer.getItems().add(dish.getName());
+            else
+                dEssert.getItems().add(dish.getName());
+        }
         grid.setAlignment(Pos.CENTER);
         grid.add(appetizer,0,0);
         grid.add(aPpetizer,0,1);
@@ -90,20 +106,36 @@ public class CustomerWindow {
         grid.add(back,1,2);
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{setMainScene(); showScene();});
+        addToOrder.setOnAction(e->addToOrderClicked(aPpetizer.getValue(),mainourse.getValue(),dEssert.getValue()));
+
+    }
+
+    private void addToOrderClicked(String appetizer, String mainCourse, String dessert)
+    {
+
+    logic.addOrderToUser( user,appetizer,mainCourse,dessert);
+    logic.printOrder( user);
     }
 
     private  void setReciptScene()
     {
+        recipt.setText(logic.getRecipt( user));
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.add(recipt,0,0);
         grid.add(back,0,1);
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{setMainScene(); showScene();});
+
     }
 
     public void showScene(){
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void setUser(User user)
+    {
+
     }
 }

@@ -1,5 +1,7 @@
 package Users;
 
+import Orders.Order;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -49,4 +51,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }
