@@ -1,6 +1,7 @@
 package Gui;
 
 import Logic.Logic;
+import Users.User;
 import Users.Waiter;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -20,6 +21,7 @@ public class MainWindow {
     private WaiterWindow waiterWindow;
     private CustomerWindow customerWindow;
     private Logic logic;
+    private User user;
     public MainWindow(Stage primaryStage, AddUserWindow addUserWindow, CookWindow cookWindow, MangerWindow mangerWindow, WaiterWindow waiterWindow, CustomerWindow customerWindow, Logic logic)
     {
         this.stage=primaryStage;
@@ -45,10 +47,13 @@ public class MainWindow {
         Button waiter = new Button("Waiter");
         Button customer = new Button("Customer");
         Button manager = new Button("Manager");
+        Label wrongData =new Label("Wrong Username or Password");
+        wrongData.setVisible(false);
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.add(login, 1 , 0);
+        grid.add(wrongData,2,0);
         grid.add(username, 0, 1);
         grid.add(usernamein, 2,1);
         grid.add(password, 0,2);
@@ -58,16 +63,46 @@ public class MainWindow {
 
         scene=new Scene(grid,600,400);
         adduser.setOnAction(e->adduserClicked());
-        loginbutton.setOnAction(e->loginClicked(usernamein.getText(),passwordin.getText()));
+        loginbutton.setOnAction(e->loginClicked(usernamein.getText(),passwordin.getText(),wrongData));
 
 
 
     }
 
-    private void loginClicked(String username,String password)
+    private void loginClicked(String username, String password, Label wrongData)
     {
 
-       logic.printUsers();
+       boolean validate= logic.checkUsers(username,password);
+       if(validate)
+       {
+           this.user=logic.getUser(username);
+           String role=logic.getRole(this.user);
+           if(role.contentEquals("Manager"))
+           {
+               managerWindow.prepareScene();
+               managerWindow.showScene();
+           }
+           else if (role.contentEquals("Cook"))
+           {
+               cookWindow.prepareScene();
+               cookWindow.showScene();
+           }
+           else if(role.contentEquals("Client"))
+           {
+               customerWindow.setMainScene();
+               customerWindow.showScene();
+           }
+           else
+           {
+               waiterWindow.prepareScene();
+               waiterWindow.showScene();
+           }
+
+       }
+       else
+       {
+            wrongData.setVisible(true);
+       }
 
     }
 
