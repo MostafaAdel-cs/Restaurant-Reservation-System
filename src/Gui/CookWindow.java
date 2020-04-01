@@ -1,48 +1,77 @@
 package Gui;
 
+import Logic.Logic;
 import Users.Cook;
 import Users.User;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CookWindow {
     private Stage stage;
     private Scene scene;
-    private Cook user=new Cook();
+    private Cook user;
+    Logic logic;
     private MainWindow mainWindow;
     public void setMainWindow(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
     }
-    public CookWindow(Stage primaryStage) {
-        this.stage=primaryStage;
+    public CookWindow(Stage primaryStage, Logic logic) {
+        this.stage=primaryStage; this.logic=logic;
     }
 
 
     public void prepareScene() {
 
-        Label orders = new Label("Orders:");
-        Button orderId = new Button();
-        Label orderDishes = new Label("Order Dishes:");
-        Label Dishes = new Label();
-        Button done = new Button("Done cooking");
+        Label order=new Label("Orders");
+        Label orders=new Label();
+        setOrders(orders);
+        TextField orderCooked=new TextField();
+        Label chooseOrder=new Label("Choose Order Number");
+        Button cooked=new Button("Done");
         Button back = new Button("Back");
 
         GridPane grid = new GridPane();
+
         grid.setAlignment(Pos.CENTER);
-        grid.add(orders, 0, 0);
-        grid.add(orderId, 0, 1);
-        grid.add(orderDishes, 1, 0);
-        grid.add(Dishes, 1, 1, 2, 5);
-        grid.add(done, 2, 3);
-        grid.add(back, 2, 4);
+        grid.add(order,1,0);
+        grid.add(orders,1,1);
+        grid.add(chooseOrder,0,2);
+        grid.add(orderCooked,3,2);
+        grid.add(cooked,1,3);
+        grid.add(back,1,4);
         scene = new Scene(grid, 600, 400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
+        cooked.setOnAction(e->orderChoosen(orderCooked.getText()));
     }
 
+    private void orderChoosen(String order) {
+        try {
+
+            int o = Integer.parseInt(order);
+            logic.setOrderAsCooked(o);
+            prepareScene();
+            showScene();
+        }
+        catch (Exception e)
+        {
+            System.out.println("no");
+        }
+
+
+        }
+
+    private void setOrders(Label orders) {
+        logic.setOrders(user,orders);
+    }
 
 
     public void showScene()
@@ -52,7 +81,7 @@ public class CookWindow {
     }
     public void setUser(User user)
     {
-
+        this.user=logic.turnToCook(user);
     }
 
 

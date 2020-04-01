@@ -28,7 +28,7 @@ public class Main extends Application {
 
         AddUserWindow addUserWindow=new AddUserWindow(primaryStage,logic);
 
-        CookWindow cookWindow=new CookWindow(primaryStage);
+        CookWindow cookWindow=new CookWindow(primaryStage,logic);
 
         MangerWindow mangerWindow=new MangerWindow(primaryStage);
 

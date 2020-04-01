@@ -83,7 +83,7 @@ public class MainWindow {
            }
            else if (role.contentEquals("Cooker"))
            {
-
+                cookWindow.setUser(user);
                cookWindow.prepareScene();
                cookWindow.showScene();
            }

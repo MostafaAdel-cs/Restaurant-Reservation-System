@@ -301,4 +301,67 @@ public class Logic {
                 }
              }
     }
+
+
+    //--------------------------------------------cookmethods-------------------------------------------------
+    public Cook turnToCook(User user)
+    {
+        Cook cook=new Cook();
+        cook.setOrders(restaurant.getOrders());
+        return cook;
+    }
+
+
+    public void setOrders(Cook user, Label orders)
+    {
+
+
+        String n=new String();
+        int counter=0;
+        boolean noOrders=true;
+        for(Order o:restaurant.getOrders().getOrders())
+        {
+            if(!o.isCooked()){
+                noOrders=false;
+            }
+        }
+        if(!noOrders){
+            for(Order o:restaurant.getOrders().getOrders())
+        {
+
+
+            counter+=1;
+
+         if(!o.isCooked())
+         {
+             n+="Order Number "+counter+"\n";
+            for(Dish dish:o.getDishes().getDishes())
+            {
+                n+=dish.getName()+"\n";
+            }
+         }
+
+        }
+        orders.setText(n);
+
+    }
+        else
+            orders.setText("No Orders");
+
+
+
+
+    }
+
+    public void setOrderAsCooked(int o) {
+        restaurant.getOrders().getOrders().get(o-1).setCooked(true);
+    }
 }
+
+
+
+
+
+
+
+
