@@ -7,7 +7,6 @@ import com.sun.org.apache.xpath.internal.operations.Or;
 
 public class Customer extends User {
     private Order order;
-    private int NumberOfchosenTable;
 
     public Order getOrder() {
         return order;
@@ -17,12 +16,5 @@ public class Customer extends User {
         this.order = order;
     }
 
-    public int getNumberOfchosenTable() {
-        return NumberOfchosenTable;
-    }
 
-    public void setNumberOfchosenTable(int numberOfchosenTable)
-    {
-        NumberOfchosenTable = numberOfchosenTable;
-    }
 }

@@ -8,22 +8,27 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
+@XmlRootElement(name="order")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Order {
 
-
+@XmlElement(name="dishes")
     private Dishes dishes;
+@XmlElement(name = "customerUserName")
+    private String customerUserName;
 
-    private Table table;
+    private int tableNumber;
+
     private boolean served;
+
     private boolean cooked;
 
-    public Table getTable() {
-        return table;
+    public int getTableNumber() {
+        return tableNumber;
     }
 
-    public void setTable(Table table) {
-        this.table = table;
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
     }
 
     public boolean isServed() {
@@ -51,5 +56,12 @@ public class Order {
         this.dishes = dishes;
     }
 
+    public String getCustomerUserName() {
+        return customerUserName;
+    }
+
+    public void setCustomerUserName(String customerUserName) {
+        this.customerUserName = customerUserName;
+    }
 
 }

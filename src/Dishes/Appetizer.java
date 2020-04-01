@@ -2,9 +2,9 @@ package Dishes;
 
 public class Appetizer extends Dish {
 
-    double taxes=0.1;
+    static double taxes=0.1;
 
-    public double getTaxes() {
+    public static double getTaxes() {
         return taxes;
     }
 }

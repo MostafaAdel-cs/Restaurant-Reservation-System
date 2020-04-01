@@ -25,6 +25,14 @@ public class Table {
         this.number = number;
     }
 
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
     public int getNumberOfSeats() {
         return numberOfSeats;
     }

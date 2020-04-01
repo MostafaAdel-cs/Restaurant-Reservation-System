@@ -24,12 +24,17 @@ public class Restaurant {
     @XmlElement(name="tables")
     private Tables tables=null;
 
-
+    @XmlElement(name="orders")
+    private Orders orders=null;
 
 
     public Users getUsers() {
         return users;
     }
+
+    public Orders getOrders() {        return orders;    }
+
+    public void setOrders(Orders orders) {    this.orders = orders;    }
 
     public void setUsers(Users users) {
         this.users = users;

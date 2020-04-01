@@ -1,8 +1,8 @@
 package Dishes;
 
 public class Dessert extends Dish {
-    double taxes=0.2;
-    public double getTaxes() {
+   static  double taxes=0.2;
+    public static double getTaxes() {
         return taxes;
     }
 }

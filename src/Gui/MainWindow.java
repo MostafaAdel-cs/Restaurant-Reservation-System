@@ -89,7 +89,7 @@ public class MainWindow {
            }
            else if(role.contentEquals("Client"))
            {
-
+                customerWindow.setUser(user);
                customerWindow.setMainScene();
                customerWindow.showScene();
            }
@@ -109,6 +109,7 @@ public class MainWindow {
     }
 
     private void adduserClicked() {
+
         addUserWindow.prepareScene();
         addUserWindow.showScene();
     }

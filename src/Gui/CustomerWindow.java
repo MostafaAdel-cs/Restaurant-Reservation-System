@@ -1,7 +1,7 @@
 package Gui;
 
-import Dishes.Dishes;
 import Logic.Logic;
+import Tables.Tables;
 import Users.Customer;
 import Users.User;
 import javafx.geometry.Pos;
@@ -16,11 +16,13 @@ public class CustomerWindow {
     private Logic logic;
     private Customer user=new Customer();
 
+
     private  Label chooseTable=new Label("Choose Table");
     private  Label appetizer=new Label("Appetizer");
     private  Label mainCourse=new Label( "Main-Course");
     private  Label dessert=new Label("Dessert");
-    private  Label recipt=new Label("Recipt");
+    private  Label receipt =new Label();
+    private Label sum=new Label();
 
 
 
@@ -34,8 +36,8 @@ public class CustomerWindow {
 
 
     private  Button choose_Table=new Button("Reserve");
-    private  Button makeOrder =new Button("Make Order");
-    private  Button changeTable=new Button("Change Table");
+    private  Button makeOrder =new Button("Make Order/Change Order");
+    private  Button changeTable=new Button("Choose/Change Table");
     private  Button back=new Button("Back");
     private  Button showReceipt=new Button("Show Receipt");
     private  Button addToOrder=new Button("Add To Order");
@@ -76,16 +78,34 @@ public class CustomerWindow {
     private  void setTablesScene() {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+        setTablesList(choosetable);
         grid.add(chooseTable, 0, 0);
         grid.add(choosetable, 1, 0);
         grid.add(choose_Table, 0, 1);
         grid.add(back, 1, 1);
         scene =new Scene(grid,600,400);
         back.setOnAction(e->{setMainScene(); showScene();});
+       choose_Table.setOnAction(e->reserveTable(choosetable.getValue()));
+
     }
+
+    private void setTablesList(ChoiceBox<String> choosetable) {
+
+       logic.getFreeTables(choosetable);
+
+
+    }
+
+    private void reserveTable(String table) {
+        logic.reserveTableForUser(user,table);
+    }
+
     private  void setOrderScene(){
 
         GridPane grid=new GridPane();
+        mainourse.getItems().clear();
+        aPpetizer.getItems().clear();
+        dEssert.getItems().clear();
         for(Dish dish:logic.getRestaurant().getDishes().getDishes())
         {
             if(dish.getType().contentEquals("main_course"))
@@ -95,6 +115,10 @@ public class CustomerWindow {
             else
                 dEssert.getItems().add(dish.getName());
         }
+        mainourse.getItems().add(null);
+        aPpetizer.getItems().add(null);
+        dEssert.getItems().add(null);
+
         grid.setAlignment(Pos.CENTER);
         grid.add(appetizer,0,0);
         grid.add(aPpetizer,0,1);
@@ -110,24 +134,34 @@ public class CustomerWindow {
 
     }
 
-    private void addToOrderClicked(String appetizer, String mainCourse, String dessert)
-    {
-
-    logic.addOrderToUser( user,appetizer,mainCourse,dessert);
-    logic.printOrder( user);
-    }
-
     private  void setReciptScene()
     {
-        recipt.setText(logic.getRecipt( user));
+
         GridPane grid=new GridPane();
+        setReceipt(receipt,sum);
         grid.setAlignment(Pos.CENTER);
-        grid.add(recipt,0,0);
-        grid.add(back,0,1);
+        grid.add(receipt,0,0);
+        grid.add(back,0,2);
+        grid.add(sum,0,1);
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{setMainScene(); showScene();});
 
     }
+
+    private void setReceipt(Label receipt,Label sum) {
+        logic.setReceipt(user,receipt,sum);
+
+    }
+
+
+    private void addToOrderClicked(String appetizer, String mainCourse, String dessert)
+    {
+        logic.addOrderToUser(user,appetizer,mainCourse,dessert);
+
+    }
+
+
+
 
     public void showScene(){
         stage.setScene(scene);
@@ -136,6 +170,6 @@ public class CustomerWindow {
 
     public void setUser(User user)
     {
-
+       this.user=logic.turnToCustomer(user);
     }
 }
