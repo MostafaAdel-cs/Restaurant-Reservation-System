@@ -29,6 +29,8 @@ public class Logic {
         for(Order o:restaurant.getOrders().getOrders())
         {
             o.setTableNumber(0);
+            o.setCustomerUserName("");
+            o.setNumber(0);
         }
 
         data.saveToXml(restaurant);
