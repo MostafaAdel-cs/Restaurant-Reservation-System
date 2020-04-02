@@ -32,7 +32,7 @@ public class Main extends Application {
 
         MangerWindow mangerWindow=new MangerWindow(primaryStage);
 
-        WaiterWindow waiterWindow=new WaiterWindow(primaryStage);
+        WaiterWindow waiterWindow=new WaiterWindow(primaryStage,logic);
 
         CustomerWindow customerWindow=new CustomerWindow(primaryStage,logic);
 

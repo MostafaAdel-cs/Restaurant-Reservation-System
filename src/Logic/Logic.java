@@ -302,31 +302,40 @@ public class Logic {
              }
     }
 
-
+    public boolean checkIfCustomerHaveTable(Customer user) {
+        if(user.getOrder().getTableNumber()==0)
+            return false;
+        else
+            return true;
+    }
     //--------------------------------------------cookmethods-------------------------------------------------
     public Cook turnToCook(User user)
     {
         Cook cook=new Cook();
+        cook.setName(user.getName());
+        cook.setPassword(user.getPassword());
+        cook.setRole(user.getRole());
+        cook.setUserName(user.getUserName());
         cook.setOrders(restaurant.getOrders());
         return cook;
     }
 
 
-    public void setOrders(Cook user, Label orders)
+    public void setOrders(Cook cook, Label orders)
     {
 
 
         String n=new String();
         int counter=0;
         boolean noOrders=true;
-        for(Order o:restaurant.getOrders().getOrders())
+        for(Order o:cook.getOrders().getOrders())
         {
             if(!o.isCooked()){
                 noOrders=false;
             }
         }
         if(!noOrders){
-            for(Order o:restaurant.getOrders().getOrders())
+            for(Order o:cook.getOrders().getOrders())
         {
 
 
@@ -335,6 +344,7 @@ public class Logic {
          if(!o.isCooked())
          {
              n+="Order Number "+counter+"\n";
+             o.setNumber(counter);
             for(Dish dish:o.getDishes().getDishes())
             {
                 n+=dish.getName()+"\n";
@@ -348,13 +358,53 @@ public class Logic {
         else
             orders.setText("No Orders");
 
-
-
-
     }
 
     public void setOrderAsCooked(int o) {
         restaurant.getOrders().getOrders().get(o-1).setCooked(true);
+    }
+
+
+    //=================================Waitermethods============================================================
+    //Waiter is basically a cook but we made a class to keep it possible to edit it or add methods
+
+    public Waiter turnToWaiter(User user) {
+        Waiter waiter=new Waiter();
+        waiter.setName(user.getName());
+        waiter.setPassword(user.getPassword());
+        waiter.setRole(user.getRole());
+        waiter.setUserName(user.getUserName());
+        waiter.setOrders(restaurant.getOrders());
+        return waiter;
+    }
+
+    public void setOrdersToWaiter(Waiter user, Label orders)
+    {
+
+        String n=new String();
+
+        boolean isThereOrder=false;
+        for(Order o:user.getOrders().getOrders())
+        {
+         if(o.isCooked()&&o.getTableNumber()!=0)
+         {
+             if(!o.isServed())
+             {
+                 isThereOrder=true;
+                 n+="Order Number "+o.getNumber()+"\n";
+                 n+="At Table Number "+o.getTableNumber()+"\n";
+             }
+         }
+        }
+        if(!isThereOrder)
+        {
+            n="No Orders To Serve";
+        }
+        orders.setText(n);
+    }
+
+
+    public void setServedOrder(int o) {restaurant.getOrders().getOrders().get(o-1).setServed(true);
     }
 }
 

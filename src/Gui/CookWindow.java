@@ -38,7 +38,8 @@ public class CookWindow {
         Label chooseOrder=new Label("Choose Order Number");
         Button cooked=new Button("Done");
         Button back = new Button("Back");
-
+        Label wrongEntry=new Label("Wrong Entry");
+        wrongEntry.setVisible(false);
         GridPane grid = new GridPane();
 
         grid.setAlignment(Pos.CENTER);
@@ -46,14 +47,15 @@ public class CookWindow {
         grid.add(orders,1,1);
         grid.add(chooseOrder,0,2);
         grid.add(orderCooked,3,2);
+        grid.add(wrongEntry,4,2);
         grid.add(cooked,1,3);
         grid.add(back,1,4);
         scene = new Scene(grid, 600, 400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
-        cooked.setOnAction(e->orderChoosen(orderCooked.getText()));
+        cooked.setOnAction(e->orderChoosen(orderCooked.getText(),wrongEntry));
     }
 
-    private void orderChoosen(String order) {
+    private void orderChoosen(String order, Label wrongEntry) {
         try {
 
             int o = Integer.parseInt(order);
@@ -63,7 +65,7 @@ public class CookWindow {
         }
         catch (Exception e)
         {
-            System.out.println("no");
+           wrongEntry.setVisible(true);
         }
 
 

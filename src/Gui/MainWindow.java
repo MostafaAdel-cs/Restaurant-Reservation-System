@@ -95,7 +95,7 @@ public class MainWindow {
            }
            else
            {
-
+                waiterWindow.setUser(user);
                waiterWindow.prepareScene();
                waiterWindow.showScene();
            }

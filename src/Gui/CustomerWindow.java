@@ -23,7 +23,7 @@ public class CustomerWindow {
     private  Label dessert=new Label("Dessert");
     private  Label receipt =new Label();
     private Label sum=new Label();
-
+    private Label noTable=new Label();
 
 
 
@@ -59,19 +59,35 @@ public class CustomerWindow {
 
 
     public void setMainScene(){
+        noTable.setVisible(false);
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
 
         grid.add(changeTable,0,0);
         grid.add(showReceipt,0,1);
-
+        grid.add(noTable,0,2);
         grid.add(makeOrder,1,0);
         grid.add(back,1,1);
         scene=new Scene(grid,600,400);
         changeTable.setOnAction(e->{setTablesScene(); showScene();});
         showReceipt.setOnAction(e->{setReciptScene(); showScene();});
-        makeOrder.setOnAction(e->{setOrderScene(); showScene();});
+        makeOrder.setOnAction(e->customerOrders(noTable));
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
+
+    }
+
+    private void customerOrders(Label noTable) {
+       if(logic.checkIfCustomerHaveTable(user))
+       {
+           setOrderScene();
+           showScene();
+       }
+       else
+       {
+           noTable.setVisible(true);
+           setMainScene();
+           showScene();
+       }
 
     }
 
