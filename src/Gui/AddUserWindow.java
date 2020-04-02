@@ -86,15 +86,8 @@ public class AddUserWindow {
             else if(!password.contentEquals(conpassword)){
                 passwordsNotSame.setVisible(true);
             }
-            else
-            {
-
-
-                try {
-                    logic.addUser(name, password, username, role);
-                } catch (JAXBException e) {
-                    e.printStackTrace();
-                }
+            else {
+                logic.addUser(name, password, username, role);
                 userAddedSuccessfully.userAdded();
                 mainWindow.prepareScene();
                 mainWindow.showScene();

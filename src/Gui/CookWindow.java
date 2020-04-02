@@ -59,9 +59,14 @@ public class CookWindow {
         try {
 
             int o = Integer.parseInt(order);
+            if(o!=0){
             logic.setOrderAsCooked(o);
             prepareScene();
             showScene();
+        }
+            else
+                wrongEntry.setVisible(true);
+
         }
         catch (Exception e)
         {

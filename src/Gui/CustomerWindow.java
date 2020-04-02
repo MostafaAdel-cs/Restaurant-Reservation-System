@@ -23,8 +23,8 @@ public class CustomerWindow {
     private  Label dessert=new Label("Dessert");
     private  Label receipt =new Label();
     private Label sum=new Label();
-    private Label noTable=new Label();
-
+    private Label noTable=new Label("Must Choose Table Before Ordering");
+    private Label servingOrder=new Label("Can't Change Table Order is Getting Served");
 
 
     private  ChoiceBox<String> choosetable =new ChoiceBox<>();
@@ -41,7 +41,7 @@ public class CustomerWindow {
     private  Button back=new Button("Back");
     private  Button showReceipt=new Button("Show Receipt");
     private  Button addToOrder=new Button("Add To Order");
-
+    private Button removeOrder=new Button("Remove Order");
 
     private MainWindow mainWindow;
     public void setMainWindow(MainWindow mainWindow) {
@@ -62,31 +62,49 @@ public class CustomerWindow {
         noTable.setVisible(false);
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
-
-        grid.add(changeTable,0,0);
-        grid.add(showReceipt,0,1);
-        grid.add(noTable,0,2);
-        grid.add(makeOrder,1,0);
-        grid.add(back,1,1);
+        servingOrder.setVisible(false);
+        grid.add(servingOrder,0,0);
+        grid.add(changeTable,0,1);
+        grid.add(showReceipt,0,2);
+        grid.add(noTable,0,3);
+        grid.add(makeOrder,1,1);
+        grid.add(back,2,0);
+        grid.add(removeOrder,1,2);
         scene=new Scene(grid,600,400);
         changeTable.setOnAction(e->{setTablesScene(); showScene();});
         showReceipt.setOnAction(e->{setReciptScene(); showScene();});
         makeOrder.setOnAction(e->customerOrders(noTable));
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
+        removeOrder.setOnAction(e->removeOrderClicked());
 
+    }
+
+    private void removeOrderClicked() {
+        if(logic.checkIfOrderIsCooked(user))
+        {
+
+            servingOrder.setVisible(true);
+        }
+        else
+            logic.removeOrder(user);
     }
 
     private void customerOrders(Label noTable) {
        if(logic.checkIfCustomerHaveTable(user))
        {
+           if(!logic.checkIfOrderIsCooked(user)){
            setOrderScene();
            showScene();
+       }
+           else{
+               servingOrder.setVisible(true);
+
+           }
        }
        else
        {
            noTable.setVisible(true);
-           setMainScene();
-           showScene();
+
        }
 
     }

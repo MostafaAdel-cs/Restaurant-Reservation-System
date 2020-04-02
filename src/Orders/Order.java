@@ -17,6 +17,8 @@ public class Order {
 @XmlElement(name = "customerUserName")
     private String customerUserName;
 
+
+
     private int tableNumber;
 
     private boolean served;

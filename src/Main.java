@@ -1,5 +1,6 @@
 import Data.Data;
 import Gui.*;
+import Gui.subGui.AddTableWindow;
 import Logic.Logic;
 import Restaurant.Restaurant;
 import Users.User;
@@ -30,7 +31,9 @@ public class Main extends Application {
 
         CookWindow cookWindow=new CookWindow(primaryStage,logic);
 
-        MangerWindow mangerWindow=new MangerWindow(primaryStage);
+        MangerWindow mangerWindow=new MangerWindow(primaryStage,logic);
+
+
 
         WaiterWindow waiterWindow=new WaiterWindow(primaryStage,logic);
 

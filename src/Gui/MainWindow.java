@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.lang.management.ManagementFactory;
+import javax.xml.bind.JAXBException;
 
 public class MainWindow {
     private Stage stage;
@@ -47,7 +47,7 @@ public class MainWindow {
 
         Label wrongData =new Label("Wrong Username or Password");
         wrongData.setVisible(false);
-
+        Button save=new Button("Save");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.add(login, 1 , 0);
@@ -58,10 +58,17 @@ public class MainWindow {
         grid.add(passwordin,2,2);
         grid.add(loginbutton,1,3);
         grid.add(adduser,1,4);
-
+        grid.add(save,2,4);
         scene=new Scene(grid,600,400);
         adduser.setOnAction(e->adduserClicked());
         loginbutton.setOnAction(e->loginClicked(usernamein.getText(),passwordin.getText(),wrongData));
+        save.setOnAction(e-> {
+            try {
+                logic.save();
+            } catch (JAXBException ex) {
+                ex.printStackTrace();
+            }
+        });
 
 
 
@@ -77,8 +84,8 @@ public class MainWindow {
            String role=logic.getRole(this.user);
            if(role.contentEquals("Manger"))
            {
-
-               managerWindow.prepareScene();
+                managerWindow.setUser(user);
+               managerWindow.prepareMainScene();
                managerWindow.showScene();
            }
            else if (role.contentEquals("Cooker"))

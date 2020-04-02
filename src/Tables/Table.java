@@ -15,7 +15,7 @@ public class Table {
     @XmlElement(name="smoking")
     private boolean smoking;
 
-    boolean reserved;
+    private boolean reserved;
 
     public int getNumber() {
         return number;

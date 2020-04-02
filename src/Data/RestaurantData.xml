@@ -1,61 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<restaurant>
-    <users>
-        <user><name>Adam Smith</name><role>Manager</role><username>adam</username><password>adam_manager</password></user>
-        <user><name>George Robben</name><role>Waiter</role><username>g</username><password>g</password></user>
-        <user><name>Tomas Hobbens</name><role>Cooker</role><username>h</username><password>h</password></user>
-        <user><name>Mostafa</name><role>Manger</role><username>dr4</username><password>123</password></user>
-        <user><name>John Doe</name><role>Client</role><username>john</username><password>john_doe</password></user>
-        <user><name>Brian Johnes</name><role>Client</role><username>brian</username><password>brian</password></user>
-        <user><name>mostafa</name><role>Client</role><username>dr</username><password>1</password></user>
-    </users>
-    <dishes>
-        <dish><name>Grilled Chicken</name><price>75</price><type>main_course</type></dish>
-        <dish><name>Greek Salade</name><price>35</price><type>appetizer</type></dish>
-        <dish><name>Fried Potatos</name><price>30</price><type>appetizer</type></dish>
-        <dish><name>Apple Pie</name><price>50</price><type>desert</type></dish>
-        <dish><name>Molten Cake</name><price>60</price><type>desert</type></dish>
-        <dish><name>Mushroom Soup</name><price>60</price><type>main_course</type></dish>
-        <dish><name>Beef Steak</name><price>80</price><type>main_course</type></dish>
-    </dishes>
-    <tables>
-        <table><number>1</number><number_of_seats>5</number_of_seats><smoking>false</smoking><reserved>true</reserved></table>
-        <table><number>2</number><number_of_seats>12</number_of_seats><smoking>false</smoking><reserved>false</reserved></table>
-        <table><number>3</number><number_of_seats>12</number_of_seats><smoking>true</smoking><reserved>false</reserved></table>
-        <table><number>4</number><number_of_seats>4</number_of_seats><smoking>false</smoking><reserved>false</reserved></table>
-        <table><number>5</number><number_of_seats>4</number_of_seats><smoking>true</smoking><reserved>false</reserved></table>
-        <table><number>6</number><number_of_seats>7</number_of_seats><smoking>true</smoking><reserved>false</reserved></table>
-        <table><number>7</number><number_of_seats>6</number_of_seats><smoking>true</smoking><reserved>false</reserved></table>
-    </tables>
+<restaurant><users><user><name>George Robben</name><role>Waiter</role><username>g</username><password>g</password></user><user><name>Tomas Hobbens</name><role>Cooker</role><username>h</username><password>h</password></user><user><name>Mostafa</name><role>Manger</role><username>dr4</username><password>123</password></user><user><name>John Doe</name><role>Client</role><username>john</username><password>john_doe</password></user><user><name>mostafa</name><role>Client</role><username>dr</username><password>1</password></user><user><name>Brian Johnes</name><role>Client</role><username>brian</username><password>brian</password></user></users><dishes><dish><name>Grilled Chicken</name><price>75</price><type>main_course</type></dish><dish><name>Greek Salade</name><price>35</price><type>appetizer</type></dish><dish><name>Fried Potatos</name><price>30</price><type>appetizer</type></dish><dish><name>Apple Pie</name><price>50</price><type>desert</type></dish><dish><name>Molten Cake</name><price>60</price><type>desert</type></dish><dish><name>Mushroom Soup</name><price>60</price><type>main_course</type></dish><dish><name>Beef Steak</name><price>80</price><type>main_course</type></dish></dishes><tables><table><number>1</number><number_of_seats>5</number_of_seats><smoking>false</smoking><reserved>true</reserved></table><table><number>2</number><number_of_seats>12</number_of_seats><smoking>false</smoking><reserved>false</reserved></table><table><number>3</number><number_of_seats>12</number_of_seats><smoking>true</smoking><reserved>false</reserved></table><table><number>4</number><number_of_seats>4</number_of_seats><smoking>false</smoking><reserved>false</reserved></table><table><number>5</number><number_of_seats>4</number_of_seats><smoking>true</smoking><reserved>false</reserved></table><table><number>6</number><number_of_seats>7</number_of_seats><smoking>true</smoking><reserved>false</reserved></table><table><number>7</number><number_of_seats>6</number_of_seats><smoking>true</smoking><reserved>false</reserved></table><table><number>8</number><number_of_seats>7</number_of_seats><smoking>true</smoking><reserved>false</reserved></table></tables>
     <orders>
         <order>
-            <dishes>
-                <dish><name>Grilled Chicken</name><price>75</price><type>main_course</type></dish>
-                <dish><name>Apple Pie</name><price>50</price><type>dessert</type></dish>
-                <dish><name>Fried Potatos</name><price>30</price><type>appetizer</type></dish>
-                <dish><name>Fried Potatos</name><price>30</price><type>appetizer</type></dish>
-            </dishes>
-            <customerUserName>brian</customerUserName>
-            <tableNumber>3</tableNumber>
+            <dishes><dish><price>0</price></dish></dishes>
+            <customerUserName></customerUserName>
+            <tableNumber>0</tableNumber>
             <served>false</served>
             <cooked>false</cooked>
-        </order>
-        <order>
-            <dishes>
-                <dish><name>Fried Potatos</name><price>30</price><type>appetizer</type></dish>
-                <dish><name>Fried Potatos</name><price>30</price><type>appetizer</type></dish>
-            </dishes>
-            <customerUserName>john</customerUserName>
-            <tableNumber>2</tableNumber>
-            <served>false</served>
-            <cooked>false</cooked>
-        </order>
-        <order>
-            <dishes><dish><name>Fried Potatos</name><price>30</price><type>appetizer</type></dish></dishes>
-            <customerUserName>dr</customerUserName>
-            <tableNumber>1</tableNumber>
-            <served>false</served>
-            <cooked>false</cooked>
+            <number>0</number>
         </order>
     </orders>
 </restaurant>

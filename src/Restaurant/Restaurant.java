@@ -28,11 +28,21 @@ public class Restaurant {
     private Orders orders=null;
 
 
+    public double getMoneyGained() {
+        return moneyGained;
+    }
+
+    public void setMoneyGained(double moneyGained) {
+        this.moneyGained += moneyGained;
+    }
+
+    private double moneyGained;
+
     public Users getUsers() {
         return users;
     }
 
-    public Orders getOrders() {        return orders;    }
+    public Orders getOrders() {return orders;}
 
     public void setOrders(Orders orders) {    this.orders = orders;    }
 
