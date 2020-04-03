@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import javax.xml.bind.JAXBException;
@@ -50,6 +51,9 @@ public class MainWindow {
         Button save=new Button("Save");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(login, 1 , 0);
         grid.add(wrongData,2,0);
         grid.add(username, 0, 1);
@@ -57,9 +61,15 @@ public class MainWindow {
         grid.add(password, 0,2);
         grid.add(passwordin,2,2);
         grid.add(loginbutton,1,3);
-        grid.add(adduser,1,4);
+        grid.add(adduser,2,3);
         grid.add(save,2,4);
         scene=new Scene(grid,600,400);
+
+        login.setTextFill(Color.web("#FFFFFF"));
+        username.setTextFill(Color.web("#FFFFFF"));
+        password.setTextFill(Color.web("#FFFFFF"));
+        wrongData.setTextFill(Color.web("#FFFFFF"));
+
         adduser.setOnAction(e->adduserClicked());
         loginbutton.setOnAction(e->loginClicked(usernamein.getText(),passwordin.getText(),wrongData));
         save.setOnAction(e-> {

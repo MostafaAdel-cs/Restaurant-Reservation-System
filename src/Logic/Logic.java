@@ -234,7 +234,7 @@ public class Logic {
             {
                 sum+=dish.getPrice()*(1+Appetizer.getTaxes());
             }
-            else if(dish.getType().contentEquals("dessert"))
+            else if(dish.getType().contentEquals("desert"))
             {
                 sum+=dish.getPrice()*(1+Dessert.getTaxes());
             }
@@ -592,7 +592,7 @@ public class Logic {
                             {
                                 sum+=dish.getPrice()*(1+Appetizer.getTaxes());
                             }
-                            else if(dish.getType().contentEquals("dessert"))
+                            else if(dish.getType().contentEquals("desert"))
                             {
                                 sum+=dish.getPrice()*(1+Dessert.getTaxes());
                             }

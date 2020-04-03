@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import javax.xml.bind.JAXBException;
@@ -48,9 +49,10 @@ public class AddUserWindow {
             enterData.setVisible(false);
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add( name , 0, 0);
-
-
         grid.add( textName , 4, 0);
         grid.add( userName , 0, 1);
         grid.add( textUserName , 4, 1);
@@ -61,12 +63,20 @@ public class AddUserWindow {
         grid.add( textPassword , 4, 3);
         grid.add( conPassword , 0, 4);
         grid.add( passwordsNotSame , 5, 4);
-
-
         grid.add( textConPassword , 4, 4);
         grid.add(submit,0,5);
         grid.add(back,4,5);
         grid.add( enterData , 1, 6);
+
+        name.setTextFill(Color.web("#FFFFFF"));
+        userName.setTextFill(Color.web("#FFFFFF"));
+        role.setTextFill(Color.web("#FFFFFF"));
+        password.setTextFill(Color.web("#FFFFFF"));
+        conPassword.setTextFill(Color.web("#FFFFFF"));
+        passwordsNotSame.setTextFill(Color.web("#FFFFFF"));
+        usernameTaken.setTextFill(Color.web("#FFFFFF"));
+        enterData.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
         submit.setOnAction(e->submitClicked(textName.getText(),textPassword.getText(),textConPassword.getText(),textUserName.getText(),chooseRole.getValue(),passwordsNotSame,usernameTaken,enterData));

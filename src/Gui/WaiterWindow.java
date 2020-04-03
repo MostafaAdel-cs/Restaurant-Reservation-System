@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class WaiterWindow {
@@ -36,12 +37,20 @@ public class WaiterWindow {
         Button getOrder=new Button("Done");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(enterOrderNumber,0,1);
         grid.add(entity,3,1);
         grid.add(wrongEntry,4,1);
         grid.add(orders,1,0);
         grid.add(back,1,3);
         grid.add(getOrder,1,2);
+
+        orders.setTextFill(Color.web("#FFFFFF"));
+        enterOrderNumber.setTextFill(Color.web("#FFFFFF"));
+        wrongEntry.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
         getOrder.setOnAction(e->getDoneOrders(entity.getText(),wrongEntry));

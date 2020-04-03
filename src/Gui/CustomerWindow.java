@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import Dishes.Dish;
 public class CustomerWindow {
@@ -62,6 +63,9 @@ public class CustomerWindow {
         noTable.setVisible(false);
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         servingOrder.setVisible(false);
         grid.add(servingOrder,0,0);
         grid.add(changeTable,0,1);
@@ -112,12 +116,18 @@ public class CustomerWindow {
     private  void setTablesScene() {
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         setTablesList(choosetable);
         grid.add(chooseTable, 0, 0);
         grid.add(choosetable, 1, 0);
         grid.add(choose_Table, 0, 1);
         grid.add(back, 1, 1);
         scene =new Scene(grid,600,400);
+
+        chooseTable.setTextFill(Color.web("#FFFFFF"));
+
         back.setOnAction(e->{setMainScene(); showScene();});
        choose_Table.setOnAction(e->reserveTable(choosetable.getValue()));
 
@@ -154,6 +164,9 @@ public class CustomerWindow {
         dEssert.getItems().add(null);
 
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(appetizer,0,0);
         grid.add(aPpetizer,0,1);
         grid.add(mainCourse,1,0);
@@ -162,6 +175,11 @@ public class CustomerWindow {
         grid.add(dEssert,2,1);
         grid.add(addToOrder,0,2);
         grid.add(back,1,2);
+
+        appetizer.setTextFill(Color.web("#FFFFFF"));
+        mainCourse.setTextFill(Color.web("#FFFFFF"));
+        dessert.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{setMainScene(); showScene();});
         addToOrder.setOnAction(e->addToOrderClicked(aPpetizer.getValue(),mainourse.getValue(),dEssert.getValue()));
@@ -174,9 +192,16 @@ public class CustomerWindow {
         GridPane grid=new GridPane();
         setReceipt(receipt,sum);
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(receipt,0,0);
         grid.add(back,0,2);
         grid.add(sum,0,1);
+
+        receipt.setTextFill(Color.web("#FFFFFF"));
+        sum.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{setMainScene(); showScene();});
 

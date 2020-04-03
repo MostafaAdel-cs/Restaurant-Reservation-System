@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -43,6 +44,9 @@ public class CookWindow {
         GridPane grid = new GridPane();
 
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(order,1,0);
         grid.add(orders,1,1);
         grid.add(chooseOrder,0,2);
@@ -50,6 +54,12 @@ public class CookWindow {
         grid.add(wrongEntry,4,2);
         grid.add(cooked,1,3);
         grid.add(back,1,4);
+
+        order.setTextFill(Color.web("#FFFFFF"));
+        orders.setTextFill(Color.web("#FFFFFF"));
+        chooseOrder.setTextFill(Color.web("#FFFFFF"));
+        wrongEntry.setTextFill(Color.web("#FFFFFF"));
+
         scene = new Scene(grid, 600, 400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
         cooked.setOnAction(e->orderChoosen(orderCooked.getText(),wrongEntry));

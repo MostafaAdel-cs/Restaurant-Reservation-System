@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.lang.management.ManagementFactory;
@@ -44,13 +45,18 @@ public class MangerWindow {
         setTotalGain(totalGain);
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(totalGain,1,0);
         grid.add(showUsers,0,1);
         grid.add(showDishes,2,1);
         grid.add(showTables,0,2);
         grid.add(showOrders,2,2);
-
         grid.add(back,1,3);
+
+        totalGain.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
         showUsers.setOnAction(e->{userScene(); showScene();});
@@ -70,9 +76,15 @@ public class MangerWindow {
         Button back=new Button("Back");
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(dishes,0,0);
         grid.add(addDish,0,1);
         grid.add(back,0,2);
+
+        dishes.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{prepareMainScene(); showScene();});
         addDish.setOnAction(e->{addDish();});
@@ -96,9 +108,15 @@ public class MangerWindow {
         Button back = new Button("Back");
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(tables,0,0);
         grid.add(addTable,0,1);
         grid.add(back,0,2);
+
+        tables.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
         back.setOnAction(e->{prepareMainScene(); showScene();});
         addTable.setOnAction(e->{addTable(user,logic);});
@@ -128,14 +146,23 @@ public class MangerWindow {
         wrong.setVisible(false);
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(orders,0,0);
         grid.add(choosePaidOrder,0,1);
-        grid.add(paidOrderInput,3,1);
-        grid.add(paid,0,2);
-        grid.add(wrong,3,2);
-        grid.add(orderNotServedOrCookedYet,1,3);
+        grid.add(paidOrderInput,1,1);
+        grid.add(paid,0,3);
+        grid.add(wrong,0,2);
+        grid.add(orderNotServedOrCookedYet,1,2);
         orderNotServedOrCookedYet.setVisible(false);
-        grid.add(back,0,4);
+        grid.add(back,1,3);
+
+        orders.setTextFill(Color.web("#FFFFFF"));
+        choosePaidOrder.setTextFill(Color.web("#FFFFFF"));
+        wrong.setTextFill(Color.web("#FFFFFF"));
+        orderNotServedOrCookedYet.setTextFill(Color.web("#FFFFFF"));
+
         back.setOnAction(e->{prepareMainScene(); showScene();});
         paid.setOnAction(e->orderPaid(paidOrderInput.getText(),wrong,orderNotServedOrCookedYet));
         scene=new Scene(grid,600,400);
@@ -174,8 +201,14 @@ public class MangerWindow {
         setUsers(users);
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
+        grid.setVgap(5);
+        grid.setHgap(5);
+        grid.setStyle("-fx-background-color: #252525");
         grid.add(users,0,0);
         grid.add(back,0,1);
+
+        users.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
 
         back.setOnAction(e->{prepareMainScene(); showScene();});
