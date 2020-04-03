@@ -74,6 +74,10 @@ public class CustomerWindow {
         grid.add(makeOrder,1,1);
         grid.add(back,2,0);
         grid.add(removeOrder,1,2);
+
+        servingOrder.setTextFill(Color.web("#FFFFFF"));
+        noTable.setTextFill(Color.web("#FFFFFF"));
+
         scene=new Scene(grid,600,400);
         changeTable.setOnAction(e->{setTablesScene(); showScene();});
         showReceipt.setOnAction(e->{setReciptScene(); showScene();});
