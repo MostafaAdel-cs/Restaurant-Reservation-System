@@ -25,14 +25,15 @@ public class Logic {
         restaurant = data.loadFromXml();
         setReservedTables();
         restaurant.setMoneyGained(0);
-    }
-    public void save() throws JAXBException {
-        for(Order o:restaurant.getOrders().getOrders())
+             for(Order o:restaurant.getOrders().getOrders())
         {
             o.setTableNumber(0);
             o.setCustomerUserName("");
             o.setNumber(0);
         }
+    }
+    public void save() throws JAXBException {
+   
 
             data.saveToXml(restaurant);
 
