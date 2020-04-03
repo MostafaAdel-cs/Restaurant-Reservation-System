@@ -22,17 +22,18 @@ public class Logic {
 
 
     public void load() throws JAXBException {
-        restaurant = data.loadFromXml();
-        setReservedTables();
-        restaurant.setMoneyGained(0);
-    }
-    public void save() throws JAXBException {
         for(Order o:restaurant.getOrders().getOrders())
         {
             o.setTableNumber(0);
             o.setCustomerUserName("");
             o.setNumber(0);
         }
+        restaurant = data.loadFromXml();
+        setReservedTables();
+        restaurant.setMoneyGained(0);
+    }
+    public void save() throws JAXBException {
+
 
         data.saveToXml(restaurant);
     }
