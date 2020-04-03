@@ -335,7 +335,8 @@ public class Logic {
                 for(Table t:restaurant.getTables().getTables())
                     if(user.getOrder().getTableNumber()==t.getNumber())
                         t.setReserved(false);
-
+        
+         restaurant.getOrders().getOrders().remove(user.getOrder());
         Order newOrder=new Order();
         List<Dish> dishes=new ArrayList();
         Dishes dishes1=new Dishes();
