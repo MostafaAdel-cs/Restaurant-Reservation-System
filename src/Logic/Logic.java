@@ -24,7 +24,7 @@ public class Logic {
     public void load() throws JAXBException {
         restaurant = data.loadFromXml();
         setReservedTables();
-        restaurant.setMoneyGained(0);
+        restaurant.setMoneyGainedAsZero();
              for(Order o:restaurant.getOrders().getOrders())
         {
             o.setTableNumber(0);
