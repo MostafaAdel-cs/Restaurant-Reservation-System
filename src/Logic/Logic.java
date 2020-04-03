@@ -22,21 +22,22 @@ public class Logic {
 
 
     public void load() throws JAXBException {
-
         restaurant = data.loadFromXml();
         setReservedTables();
         restaurant.setMoneyGained(0);
-            for (Order o : restaurant.getOrders().getOrders()) {
-                o.setTableNumber(0);
-                o.setCustomerUserName("");
-                o.setNumber(0);
-            }
     }
     public void save() throws JAXBException {
+        for(Order o:restaurant.getOrders().getOrders())
+        {
+            o.setTableNumber(0);
+            o.setCustomerUserName("");
+            o.setNumber(0);
+        }
+
+            data.saveToXml(restaurant);
 
 
-        data.saveToXml(restaurant);
-    }
+        }
 
     public void setReservedTables()
   {
@@ -275,46 +276,46 @@ public class Logic {
     {
         int x=0;
         String tnum=new String();
-        for (String val: table.split("=")) {
-        x++;
-        if(x==2){
-            tnum=val;
-        }
-        }
-        x=0;
-        for (String val: tnum.split(",")){
-            x++;
-            if(x==1)
-                tnum=val;
-        }
-        int tablenumber=Integer.parseInt(tnum);
-
-        if(user.getOrder().getTableNumber()==0) {
-            user.getOrder().setTableNumber(tablenumber);
-
-            for(Table table1:restaurant.getTables().getTables())
-            {
-                if(tablenumber==table1.getNumber())
-                    table1.setReserved(true);
+        try {
+            for (String val : table.split("=")) {
+                x++;
+                if (x == 2) {
+                    tnum = val;
+                }
             }
-        }
-        else
-            {
-                int reservedTable;
-                reservedTable=user.getOrder().getTableNumber();
+            x = 0;
+            for (String val : tnum.split(",")) {
+                x++;
+                if (x == 1)
+                    tnum = val;
+            }
+            int tablenumber = Integer.parseInt(tnum);
+
+            if (user.getOrder().getTableNumber() == 0) {
                 user.getOrder().setTableNumber(tablenumber);
-                for(Table table1:restaurant.getTables().getTables())
-                {
-                    if(tablenumber==table1.getNumber())
+
+                for (Table table1 : restaurant.getTables().getTables()) {
+                    if (tablenumber == table1.getNumber())
+                        table1.setReserved(true);
+                }
+            } else {
+                int reservedTable;
+                reservedTable = user.getOrder().getTableNumber();
+                user.getOrder().setTableNumber(tablenumber);
+                for (Table table1 : restaurant.getTables().getTables()) {
+                    if (tablenumber == table1.getNumber())
                         table1.setReserved(true);
                 }
 
-                for(Table table1:restaurant.getTables().getTables())
-                {
-                    if(reservedTable==table1.getNumber())
+                for (Table table1 : restaurant.getTables().getTables()) {
+                    if (reservedTable == table1.getNumber())
                         table1.setReserved(false);
                 }
-             }
+            }
+        }catch (Exception nullPointer)
+        {
+
+        }
     }
 
     public boolean checkIfCustomerHaveTable(Customer user) {
@@ -329,20 +330,24 @@ public class Logic {
             else return false;
     }
     public void removeOrder(Customer user) {
-        for(Table t:restaurant.getTables().getTables())
-            if(user.getOrder().getTableNumber()==t.getNumber())
-                t.setReserved(false);
-        user.getOrder().setTableNumber(0);
-        user.getOrder().setNumber(0);
-        try {
-            for (Dish dish : user.getOrder().getDishes().getDishes())
-                user.getOrder().getDishes().getDishes().remove(dish);
-        }catch (Exception e)
-        {
-            //java.util.ConcurrentModificationException
-        }
-    }
+        if(user.getOrder().getTableNumber()!=0)
+                for(Table t:restaurant.getTables().getTables())
+                    if(user.getOrder().getTableNumber()==t.getNumber())
+                        t.setReserved(false);
 
+        Order newOrder=new Order();
+        List<Dish> dishes=new ArrayList();
+        Dishes dishes1=new Dishes();
+        dishes1.setDishes(dishes);
+        newOrder.setNumber(0);
+        newOrder.setCustomerUserName(user.getUserName());
+        newOrder.setTableNumber(0);
+        newOrder.setCooked(false);
+        newOrder.setServed(false);
+        newOrder.setDishes(dishes1);
+        user.setOrder(newOrder);
+
+    }
     //--------------------------------------------cookmethods-------------------------------------------------
     public Cook turnToCook(User user)
     {
@@ -374,7 +379,6 @@ public class Logic {
 
 
         if(isThereOrders){
-            System.out.println(1);
             for(Order o:cook.getOrders().getOrders())
             {
 
@@ -597,17 +601,15 @@ public class Logic {
                             {
                                 sum+=dish.getPrice()*(1+Dessert.getTaxes());
                             }
-                            else if(dish.getType().contentEquals("main_course"))
+                            else
                                 sum+=dish.getPrice()*(1+MainCourse.getTaxes());
 
                         }
-                            try {
-                                for (Dish dish : o.getDishes().getDishes())
-                                    o.getDishes().getDishes().remove(dish);
-                            }
-                            catch (Exception e){
 
-                            }
+                        Dishes dishes=new Dishes();
+                        List<Dish> dishes1=new ArrayList();
+                        dishes.setDishes(dishes1);
+                        o.setDishes(dishes);
                         o.setServed(false);
                         o.setCooked(false);
                         o.setNumber(0);
@@ -625,7 +627,6 @@ public class Logic {
         totalGain.setText("Total Gain ="+restaurant.getMoneyGained());
     }
 }
-
 
 
 
