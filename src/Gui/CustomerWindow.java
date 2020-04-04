@@ -1,7 +1,6 @@
 package Gui;
 
 import Logic.Logic;
-import Tables.Tables;
 import Users.Customer;
 import Users.User;
 import javafx.geometry.Pos;
@@ -16,35 +15,11 @@ import Dishes.Dish;
 public class CustomerWindow {
     private Logic logic;
     private Customer user=new Customer();
-
-
-    private  Label chooseTable=new Label("Choose Table");
-    private  Label appetizer=new Label("Appetizer");
-    private  Label mainCourse=new Label( "Main-Course");
-    private  Label dessert=new Label("Dessert");
-    private  Label receipt =new Label();
-    private Label sum=new Label();
-    private Label noTable=new Label("Must Choose Table Before Ordering");
-    private Label servingOrder=new Label("Can't Change Table Order is Getting Served");
-
-
-    private  ChoiceBox<String> choosetable =new ChoiceBox<>();
-    private  ChoiceBox<String> aPpetizer =new ChoiceBox<>();
-    private  ChoiceBox<String> mainourse =new ChoiceBox<>();
-    private  ChoiceBox<String> dEssert =new ChoiceBox<>();
-
-
-
-
-    private  Button choose_Table=new Button("Reserve");
-    private  Button makeOrder =new Button("Make Order/Change Order");
-    private  Button changeTable=new Button("Choose/Change Table");
     private  Button back=new Button("Back");
-    private  Button showReceipt=new Button("Show Receipt");
-    private  Button addToOrder=new Button("Add To Order");
-    private Button removeOrder=new Button("Remove Order");
-
     private MainWindow mainWindow;
+
+
+
     public void setMainWindow(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
     }
@@ -58,8 +33,14 @@ public class CustomerWindow {
 
 
 
-
+ private    Label noTable=new Label("Must Choose Table Before Ordering");
+ private   Label servingOrder=new Label("Can't Change Table or Remove Order or Change Order\nOrder is Getting Served");
     public void setMainScene(){
+
+         Button removeOrder=new Button("Remove Order");
+         Button showReceipt=new Button("Show Receipt");
+         Button makeOrder =new Button("Make Order/Change Order");
+         Button changeTable=new Button("Choose/Change Table");
         noTable.setVisible(false);
         GridPane grid=new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -78,14 +59,26 @@ public class CustomerWindow {
         servingOrder.setTextFill(Color.web("#FFFFFF"));
         noTable.setTextFill(Color.web("#FFFFFF"));
 
-        scene=new Scene(grid,600,400);
-        changeTable.setOnAction(e->{setTablesScene(); showScene();});
+        scene=new Scene(grid,800,400);
+        changeTable.setOnAction(e->choosetableClicked());
         showReceipt.setOnAction(e->{setReciptScene(); showScene();});
         makeOrder.setOnAction(e->customerOrders(noTable));
-        back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
+        back.setOnAction(e->{
+            System.out.println(user.getOrder().getTableNumber()+" "+user.getOrder().getNumber()); mainWindow.prepareScene(); mainWindow.showScene();});
         removeOrder.setOnAction(e->removeOrderClicked());
 
     }
+
+    private void choosetableClicked() {
+        if(logic.checkIfOrderIsCooked(user))
+        {
+            servingOrder.setVisible(true);
+        }else{
+            setTablesScene();
+            showScene();
+        }
+    }
+
 
     private void removeOrderClicked() {
         if(logic.checkIfOrderIsCooked(user))
@@ -118,6 +111,10 @@ public class CustomerWindow {
     }
 
     private  void setTablesScene() {
+        Label chooseTable=new Label("Choose Table");
+        ChoiceBox<String> choosetable =new ChoiceBox<>();
+        Button choose_Table=new Button("Reserve");
+
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(5);
@@ -128,7 +125,7 @@ public class CustomerWindow {
         grid.add(choosetable, 1, 0);
         grid.add(choose_Table, 0, 1);
         grid.add(back, 1, 1);
-        scene =new Scene(grid,600,400);
+        scene =new Scene(grid,800,400);
 
         chooseTable.setTextFill(Color.web("#FFFFFF"));
 
@@ -145,11 +142,18 @@ public class CustomerWindow {
     }
 
     private void reserveTable(String table) {
-        logic.reserveTableForUser(user,table);
+        logic.reserveTableForCustomer(user,table);
     }
 
     private  void setOrderScene(){
 
+          Label appetizer=new Label("Appetizer");
+          Label mainCourse=new Label( "Main-Course");
+          Label dessert=new Label("Dessert");
+          ChoiceBox<String> aPpetizer =new ChoiceBox<>();
+          ChoiceBox<String> mainourse =new ChoiceBox<>();
+          ChoiceBox<String> dEssert =new ChoiceBox<>();
+          Button addToOrder=new Button("Add To Order");
         GridPane grid=new GridPane();
         mainourse.getItems().clear();
         aPpetizer.getItems().clear();
@@ -184,7 +188,7 @@ public class CustomerWindow {
         mainCourse.setTextFill(Color.web("#FFFFFF"));
         dessert.setTextFill(Color.web("#FFFFFF"));
 
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
         back.setOnAction(e->{setMainScene(); showScene();});
         addToOrder.setOnAction(e->addToOrderClicked(aPpetizer.getValue(),mainourse.getValue(),dEssert.getValue()));
 
@@ -192,6 +196,9 @@ public class CustomerWindow {
 
     private  void setReciptScene()
     {
+          Label receipt =new Label();
+         Label sum=new Label();
+
 
         GridPane grid=new GridPane();
         setReceipt(receipt,sum);
@@ -206,7 +213,7 @@ public class CustomerWindow {
         receipt.setTextFill(Color.web("#FFFFFF"));
         sum.setTextFill(Color.web("#FFFFFF"));
 
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
         back.setOnAction(e->{setMainScene(); showScene();});
 
     }

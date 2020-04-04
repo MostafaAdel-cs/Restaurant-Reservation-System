@@ -57,7 +57,7 @@ public class MangerWindow {
 
         totalGain.setTextFill(Color.web("#FFFFFF"));
 
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
         showUsers.setOnAction(e->{userScene(); showScene();});
         showOrders.setOnAction(e->{orderScene(); showScene();});
@@ -85,7 +85,7 @@ public class MangerWindow {
 
         dishes.setTextFill(Color.web("#FFFFFF"));
 
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
         back.setOnAction(e->{prepareMainScene(); showScene();});
         addDish.setOnAction(e->{addDish();});
     }
@@ -117,7 +117,7 @@ public class MangerWindow {
 
         tables.setTextFill(Color.web("#FFFFFF"));
 
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
         back.setOnAction(e->{prepareMainScene(); showScene();});
         addTable.setOnAction(e->{addTable(user,logic);});
     }
@@ -165,7 +165,7 @@ public class MangerWindow {
 
         back.setOnAction(e->{prepareMainScene(); showScene();});
         paid.setOnAction(e->orderPaid(paidOrderInput.getText(),wrong,orderNotServedOrCookedYet));
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
     }
 
     private void orderPaid(String paidOrder, Label wrong, Label order) {
@@ -209,7 +209,7 @@ public class MangerWindow {
 
         users.setTextFill(Color.web("#FFFFFF"));
 
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
 
         back.setOnAction(e->{prepareMainScene(); showScene();});
     }

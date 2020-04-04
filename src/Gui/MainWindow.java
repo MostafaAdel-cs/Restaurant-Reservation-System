@@ -63,7 +63,7 @@ public class MainWindow {
         grid.add(loginbutton,1,3);
         grid.add(adduser,2,3);
         grid.add(save,2,4);
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
 
         login.setTextFill(Color.web("#FFFFFF"));
         username.setTextFill(Color.web("#FFFFFF"));

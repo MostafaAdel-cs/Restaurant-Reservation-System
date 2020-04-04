@@ -65,6 +65,7 @@ public class Restaurant {
     public void setTables(Tables tables) {
         this.tables = tables;
     }
+
        public void setMoneyGainedAsZero() {
         this.moneyGained=0;
     }

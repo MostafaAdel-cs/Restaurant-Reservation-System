@@ -4,6 +4,7 @@ import Data.Data;
 import Dishes.Dish;
 import Dishes.Dishes;
 import Orders.Order;
+import Orders.Orders;
 import Restaurant.Restaurant;
 import Tables.*;
 import Users.*;
@@ -23,14 +24,29 @@ public class Logic {
 
     public void load() throws JAXBException {
         restaurant = data.loadFromXml();
-        setReservedTables();
-        restaurant.setMoneyGainedAsZero();
-             for(Order o:restaurant.getOrders().getOrders())
-        {
+
+
+        try{
+            for(Order o:restaurant.getOrders().getOrders()){
             o.setTableNumber(0);
             o.setCustomerUserName("");
             o.setNumber(0);
         }
+        }catch (Exception e)
+        {
+            Orders orders=new Orders();
+            List<Order> orders1=new ArrayList();
+            orders.setOrders(orders1);
+            restaurant.setOrders(orders);
+        }
+        for(Order o:restaurant.getOrders().getOrders()){
+            o.setTableNumber(0);
+            o.setCustomerUserName("");
+            o.setNumber(0);
+        }
+        restaurant.setMoneyGainedAsZero();
+        setReservedTables();
+
     }
     public void save() throws JAXBException {
    
@@ -147,6 +163,8 @@ public class Logic {
           restaurant.getUsers().getUsers().remove(user);
           restaurant.getUsers().getUsers().add(customer);
             Order order=new Order();
+            order.setTableNumber(0);
+            order.setNumber(0);
             Dishes dishes=new Dishes();
             List<Dish> dishes1=new ArrayList<Dish>();
             dishes.setDishes(dishes1);
@@ -273,11 +291,11 @@ public class Logic {
         }
     }
 
-    public void reserveTableForUser(Customer user,String table)
+    public void reserveTableForCustomer(Customer user, String table)
     {
         int x=0;
         String tnum=new String();
-        try {
+
             for (String val : table.split("=")) {
                 x++;
                 if (x == 2) {
@@ -313,10 +331,7 @@ public class Logic {
                         table1.setReserved(false);
                 }
             }
-        }catch (Exception nullPointer)
-        {
 
-        }
     }
 
     public boolean checkIfCustomerHaveTable(Customer user) {
@@ -335,6 +350,7 @@ public class Logic {
                 for(Table t:restaurant.getTables().getTables())
                     if(user.getOrder().getTableNumber()==t.getNumber())
                         t.setReserved(false);
+
         
          restaurant.getOrders().getOrders().remove(user.getOrder());
         Order newOrder=new Order();

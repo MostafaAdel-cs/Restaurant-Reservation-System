@@ -60,7 +60,7 @@ public class CookWindow {
         chooseOrder.setTextFill(Color.web("#FFFFFF"));
         wrongEntry.setTextFill(Color.web("#FFFFFF"));
 
-        scene = new Scene(grid, 600, 400);
+        scene = new Scene(grid, 800, 400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
         cooked.setOnAction(e->orderChoosen(orderCooked.getText(),wrongEntry));
     }

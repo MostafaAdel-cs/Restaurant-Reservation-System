@@ -77,7 +77,7 @@ public class AddUserWindow {
         usernameTaken.setTextFill(Color.web("#FFFFFF"));
         enterData.setTextFill(Color.web("#FFFFFF"));
 
-        scene=new Scene(grid,600,400);
+        scene=new Scene(grid,800,400);
         back.setOnAction(e->{mainWindow.prepareScene(); mainWindow.showScene();});
         submit.setOnAction(e->submitClicked(textName.getText(),textPassword.getText(),textConPassword.getText(),textUserName.getText(),chooseRole.getValue(),passwordsNotSame,usernameTaken,enterData));
 
