@@ -364,6 +364,7 @@ public class Logic {
         newOrder.setServed(false);
         newOrder.setDishes(dishes1);
         user.setOrder(newOrder);
+        restaurant.getOrders().getOrders().add(newOrder);
 
     }
     //--------------------------------------------cookmethods-------------------------------------------------
