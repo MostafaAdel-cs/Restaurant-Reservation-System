@@ -10,26 +10,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Assignment_2_jar/Assignment_2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Assignment_2_jar/Assignment_2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Data/RestaurantData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Data/RestaurantData.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Gui/AddUserWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Gui/AddUserWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Gui/CookWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Gui/CookWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Gui/CustomerWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Gui/CustomerWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Gui/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Gui/MainWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Gui/MangerWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Gui/MangerWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Gui/UserAddedSuccessfully.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Gui/WaiterWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Gui/WaiterWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Logic/Logic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Logic/Logic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment_2/Restaurant/Restaurant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment_2/Restaurant/Restaurant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Data/RestaurantData.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/RestaurantData.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/AddUserWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui/AddUserWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/CookWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui/CookWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/CustomerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui/CustomerWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/MangerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui/MangerWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/UserAddedSuccessfully.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gui/WaiterWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui/WaiterWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Logic/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Logic/Logic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Restaurant/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Restaurant/Restaurant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,11 +319,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="774" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585853414837" />
-    <state x="464" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586007148853">
+    <state x="464" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1586011514922">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="413" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1585892239100" />
-    <state x="464" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1586007148853" />
+    <state x="464" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1586011514922" />
     <state x="566" y="297" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1585685123751">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -356,10 +337,10 @@
     </state>
     <state x="359" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585892433891" />
     <state x="404" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586007255464" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1586007144766">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1586011511685">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586007144766" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586011511685" />
     <state width="1493" height="212" key="GridCell.Tab.0.bottom" timestamp="1586010741439">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -400,15 +381,15 @@
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1585892047271" />
     <state width="724" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585604240358" />
-    <state x="183" y="0" key="SettingsEditor" timestamp="1586007151769">
+    <state x="183" y="0" key="SettingsEditor" timestamp="1586011515870">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585892254879" />
-    <state x="183" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586007151769" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586007233297">
+    <state x="183" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586011515870" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586011439170">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586007233297" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586011439170" />
     <state x="209" y="66" key="new project wizard" timestamp="1585675179658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
