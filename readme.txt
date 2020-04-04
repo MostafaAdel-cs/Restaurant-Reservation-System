@@ -36,6 +36,8 @@ Users are instructed not to input any kind of wrong data such as the when the or
 
 
 The project was divided one of us did most of gui and the other one focused on logic class..
+but mainly 6189 focused on logic class andd helped in gui
+and 6187 focused on gui and helped in logic..
 
 
 
