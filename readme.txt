@@ -1,6 +1,6 @@
 Restaurant reservation system
 
-
+this program is unstable we didn't geet enough time to test it we under estimated how time consuming it was..
 won't work unless adding this part to the xml file provided in the pdf
  <orders>
         <order>
