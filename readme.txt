@@ -1,9 +1,9 @@
 Restaurant reservation system
 
-this program won't work on the pdf xml file proberly because there ia two typos one of them we delt with it but the other we found out about it too late 
+this program won't work on the pdf xml file proberly because there is two typos one of them we delt with it but the other we found out about it too late 
 so please change the word manager to manger
 if the batch file didn't run just rebuild the project..
-this program is unstable we didn't geet enough time to test it we under estimated how time consuming it was..
+this program is unstable we didn't get enough time to test it we under estimated how time consuming it was..
 
 
 
